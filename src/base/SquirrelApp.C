@@ -5,6 +5,9 @@
 #include "MooseSyntax.h"
 
 // kernels
+#include "TimeDerivativeSUPG.h"
+#include "AdvectionSUPG.h"
+#include "UserForcingFunctionSUPG.h"
 #include "ConservativeTemperatureAdvection.h"
 #include "NonConservativeAdvection.h"
 #include "PotentialAdvection.h"
@@ -95,6 +98,9 @@ SquirrelApp__registerObjects(Factory & factory)
 void
 SquirrelApp::registerObjects(Factory & factory)
 {
+  registerKernel(TimeDerivativeSUPG);
+  registerKernel(AdvectionSUPG);
+  registerKernel(UserForcingFunctionSUPG);
   registerKernel(PotentialAdvection);
   registerKernel(NonConservativeAdvection);
   registerKernel(ConservativeTemperatureAdvection);
